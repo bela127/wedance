@@ -138,7 +138,7 @@ export default {
     },
     firebase: {
       config: {
-        apiKey: 'AIzaSyAnUrpcBAo-5A7qr8ysCcin29n2VUp2cA0',
+        apiKey: process.env.GOOGLE_FIREBASE_API_KEY,
         authDomain: 'wedance-4abe3.firebaseapp.com',
         databaseURL: 'https://wedance-4abe3.firebaseio.com',
         projectId: 'wedance-4abe3',
