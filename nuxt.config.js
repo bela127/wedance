@@ -139,7 +139,7 @@ export default {
     firebase: {
       config: {
         apiKey: process.env.NUXT_ENV_GOOGLE_FIREBASE_API_KEY,
-        authDomain: 'wedance-4abe3.firebaseapp.com',
+        authDomain: 'auth.wedance.vip',
         databaseURL: 'https://wedance-4abe3.firebaseio.com',
         projectId: 'wedance-4abe3',
         storageBucket: 'wedance-4abe3.appspot.com',
