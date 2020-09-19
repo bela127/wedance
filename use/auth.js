@@ -76,6 +76,10 @@ export default () => {
       return ''
     }
 
+    if (payload.includes('wedance-4abe3.firebaseapp.com')) {
+      return ''
+    }
+
     return payload
   }
 
