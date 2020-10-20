@@ -32,7 +32,7 @@ How to setup a project in Firebase for using as backend.
 
 ### Setup
 How to setup the repository on your lokal mashine for development.
-(For testing you will still need the all other steps!)
+(For testing you will still need all the other steps!)
 
 1. Fork this repository, e.g. https://github.com/razbakov/wedance/fork
 2. Clone your forked repository with `git clone https://github.com/<your-username>/wedance.git`
