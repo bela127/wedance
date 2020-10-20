@@ -91,7 +91,7 @@ And include acceptance criteria, which describes a check list with all requireme
 
 ### Where to contribute
 
-Documentation is almost always a great place to start contributing to a new project. Forem is an Open Source, community-driven project. Therefore, providing and maintaining quality documentation is one of our most important jobs. You can find more information in our docs guide!
+Documentation is almost always a great place to start contributing to a new project. WeDance is an Open Source, community-driven project. Therefore, providing and maintaining quality documentation is one of our most important jobs. You can find more information in our docs guide!
 
 Refactoring, which involves improving the code without modifying behavior, is a great place to help out! Generally speaking, you can rely on existing tests to ensure that your refactor doesn't introduce any unexpected behavior. If an area isn't well tested, you might be asked to include a regression test with your refactoring PR. Refactors can touch many files, so we encourage breaking big changes into small PRs.
 
