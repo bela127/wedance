@@ -6,7 +6,7 @@ const app = {
   social: {
     twitter: 'WeDanceHQ'
   },
-  url: process.env.APP_BASE_URL,
+  url: process.env.URL,
   cover: '/cover/wide.png'
 }
 
