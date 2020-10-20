@@ -6,7 +6,7 @@
 
 - [Nuxt.js](https://nuxtjs.org) – Vuejs framework, which is used as Static Site Generator.
 - [Tailwind CSS](https://tailwindcss.com/) – utility-first CSS framework.
-- [Nuxt Composition Api](https://composition-api.nuxtjs.org/) – provides a way to use the Vue 3 Composition API in with Nuxt-specific features.
+- [Nuxt Composition Api](https://composition-api.nuxtjs.org/) – provides a way to use the Vue 3 Composition API with Nuxt-specific features.
 - [Firebase](https://firebase.google.com/) – used as Serverless framework with Firestore realtime database, authentication and cloud functions.
 - [Mailgun](https://www.mailgun.com/) – used as an email delivery and tracking service.
 - [Sentry](https://sentry.io/) – monitoring platform to log exceptions and errors.
@@ -17,45 +17,85 @@
 ### Prerequisites
 
 - [Yarn](https://classic.yarnpkg.com/en/docs/install) – javascript package manager
-- [VSCode](https://code.visualstudio.com/) – code editor
+
+### Create Firebase project
+
+- Go to [Firebase Console](https://console.firebase.google.com/) click `Add project`, enter any name, click `Continue`, uncheck `Enable Google Analytics for this project`, click `Continue`.
+- Under `Get started by adding Firebase to your app` click 3d icon (Web), enter name `Web`, uncheck `Firebase Hosting`, click `Register app`, copy generated `firebaseConfig` for later, you will need it for `.env` file.
+- Go to `Authentication`, switch to tab `Sign-in method`, click `Email/Password` and enable both triggers (password and email link); enable `Google`.
+- Go to `Cloud Firestore`, click `Create database`, select `Start in test mode`, click `Next`, choose region `eur3`.
 
 ### Setup
 
 1. Fork this repository, e.g. https://github.com/razbakov/wedance/fork
 2. Clone your forked repository with `git clone https://github.com/<your-username>/wedance.git`
 3. Install dependencies with `yarn install`
-4. Run `yarn dev` to serve site with hot reload at https://localhost:3000/
+4. Set up keys for your local instance of WeDance, you'll need to create an `.env` file. Take a look at `.env.example`. This file lists all the `ENV` variables we use and provides a fake default for any missing keys.
+5. Run `yarn dev` to serve site with hot reload at https://localhost:3000/
+
+To activate all services and features see section `Services` below.
+
+### Tools
+
+**Code Editor:** [VSCode](https://code.visualstudio.com/) with following plugins:
+
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+- [Vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur)
+- [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+
+**Browser:** [Chrome](https://chrome.google.com/) with extensions:
+
+- [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
 
 ## Site structure
 
 This site is a [Nuxt.js](https://nuxtjs.org) application. See [Directory Structure](https://nuxtjs.org/guide/directory-structure) and official guide for more information. Also most of folders in this repository has a `README.md` file.
 
-## Deploy
+`functions` folder contains Firebase Cloud Functions.
 
-### App
+## Deployment Guide
 
-- Enable Maps API in Google API
-- Deploy to Netlify with env:
+Read [How to deploy on Netlify?](https://nuxtjs.org/faq/netlify-deployment/).
 
-```
-NUXT_ENV_GOOGLE_API_KEY=
-NUXT_ENV_GOOGLE_FIREBASE_API_KEY=
-```
+- Push your branch to github.
+- Sing in to [Netlify](https://netlify.com/).
+- Click `New sity from Git`.
+- Choose `GitHub` and select your repository.
+- Select your branch.
+- Build command: `yarn build`.
+- Publish directory: `dist`.
+- Click `Advanced build settings` and `New variable`.
+- Add all keys and values from `.env` file.
+- Click `Deploy site`.
+
+To activate all services and features see section `Services` below.
+
+## Services
+
+### Authentication for custom domains
+
+- Go to `Authentication`, switch to tab `Sign-in method` find section `Authorized domains`, click `Add domain` and add new
+
+### City auto-complete
+
+- Enable Maps API in Google API in [Google Cloud Console](https://console.cloud.google.com/apis/library)
 
 ### Mailgun
 
-- Create mailgun account
-- Create domain and setup DNS
-- Create API key
-- Init Firebase
-- Deploy Firebase
-- Enable Pub/Sub, Scheduler, Build API in cloud.google.com
-- Setup hooks in Mailgun
-- Create firestore index (send test mail, see logs, find link to create index)
+- Create [mailgun](https://www.mailgun.com/) account.
+- Create domain and setup DNS.
+- Create API key.
+- Enable Pub/Sub, Scheduler, Build API in [Google Cloud Console](https://console.cloud.google.com/apis/library).
+- Install [Firebase-CLI](https://firebase.google.com/docs/cli) locally and init project with `firebase init`.
+- Add mailgun confguration to Firebase:
 
 ```bash
 firebase functions:config:set mailgun.key="" mailgun.domain="" mailgun.host=""
 ```
+
+- Deploy Firebase with `firebase deploy`.
+- Setup hooks in Mailgun.
+- Create firestore index (send test mail, see logs, find link to create index).
 
 ## Contributing
 
@@ -108,11 +148,11 @@ However, any significant improvement should be associated to an existing feature
 #### Getting started
 
 - Setup project locally (see Installation Guide).
-- Create a [new Firebase project](https://console.firebase.google.com/u/0/) and configure application to use it.
+- Make changes to code.
 - Build and run locally `yarn build && yarn start`.
 - Checkout new branch and commit your changes.
 - Deploy to Netlify.
-- Create a Pull Request and include link to your Netlify demo.
+- Create a Pull Request and include a link to your Netlify demo.
 
 #### Code Style
 
