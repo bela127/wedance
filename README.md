@@ -107,7 +107,13 @@ However, any significant improvement should be associated to an existing feature
 
 #### Getting started
 
-Setup project locally (see Installation Guide).
+- Setup project locally (see Installation Guide).
+- Create a [new Firebase project](https://console.firebase.google.com/u/0/) and configure application to use it.
+- Make code changes locally, running with `yarn dev`.
+- Build and run locally `yarn build && yarn start`.
+- Checkout new branch and commit your changes.
+- Deploy to Netlify.
+- Create a Pull Request and include link to your Netlify demo.
 
 #### Code Style
 
