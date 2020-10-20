@@ -3,6 +3,7 @@
 > https://wedance.vip/ – community platform for dancers
 
 ## Built with
+In this section all frameworks and technologies used in this Project are listed.
 
 - [Nuxt.js](https://nuxtjs.org) – Vuejs framework, which is used as Static Site Generator.
 - [Tailwind CSS](https://tailwindcss.com/) – utility-first CSS framework.
@@ -13,12 +14,16 @@
 - [Netlify](https://netlify.com/) – CDN, CI and Hosting provider, that deploys site on each commit.
 
 ## Installation Guide
-
+In the following e detailed explanation is given, how to setup a running development version of the hole Projekt, with database and webhost.
 ### Prerequisites
+What you need before you can begin.
 
 - [Yarn](https://classic.yarnpkg.com/en/docs/install) – javascript package manager
+- [Firebase](https://firebase.google.com/) - a firebase account
+- [Netlify](https://www.netlify.com/) - a Netlify account
 
 ### Create Firebase project
+How to setup a project in Firebase for using as backend.
 
 - Go to [Firebase Console](https://console.firebase.google.com/) click `Add project`, enter any name, click `Continue`, uncheck `Enable Google Analytics for this project`, click `Continue`.
 - Under `Get started by adding Firebase to your app` click 3d icon (Web), enter name `Web`, uncheck `Firebase Hosting`, click `Register app`, copy generated `firebaseConfig` for later, you will need it for `.env` file.
@@ -26,6 +31,8 @@
 - Go to `Cloud Firestore`, click `Create database`, select `Start in test mode`, click `Next`, choose region `eur3`.
 
 ### Setup
+How to setup the repository on your lokal mashine for development.
+(For testing you will still need the all other steps!)
 
 1. Fork this repository, e.g. https://github.com/razbakov/wedance/fork
 2. Clone your forked repository with `git clone https://github.com/<your-username>/wedance.git`
@@ -34,8 +41,10 @@
 5. Run `yarn dev` to serve site with hot reload at https://localhost:3000/
 
 To activate all services and features see section `Services` below.
+(This is not needed for basic testing, but only for a full-scale deployment)
 
 ### Tools
+A list of basic tools you could use for development and testing.
 
 **Code Editor:** [VSCode](https://code.visualstudio.com/) with following plugins:
 
@@ -48,12 +57,15 @@ To activate all services and features see section `Services` below.
 - [Vue.js devtools](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
 
 ## Site structure
+If you ask your self how is this project structured, which files go where, read the following.
 
 This site is a [Nuxt.js](https://nuxtjs.org) application. See [Directory Structure](https://nuxtjs.org/guide/directory-structure) and official guide for more information. Also most of folders in this repository has a `README.md` file.
 
 `functions` folder contains Firebase Cloud Functions.
 
 ## Deployment Guide
+In *Installation Guide* you made all the preparations to deploy the projekt.
+Here is discribed how to deploy it.
 
 Read [How to deploy on Netlify?](https://nuxtjs.org/faq/netlify-deployment/).
 
@@ -71,16 +83,21 @@ Read [How to deploy on Netlify?](https://nuxtjs.org/faq/netlify-deployment/).
 To activate all services and features see section `Services` below.
 
 ## Services
+If you want to run all services that are used for a fully functional projekt your right here.
+You don't need to do this if your good with testing without the services.
 
 ### Authentication for custom domains
+If you want to host the projekt under a custom domain.
 
 - Go to `Authentication`, switch to tab `Sign-in method` find section `Authorized domains`, click `Add domain` and add new
 
 ### City auto-complete
+If you want the auto-complete feature for city selection.
 
 - Enable Maps API in Google API in [Google Cloud Console](https://console.cloud.google.com/apis/library)
 
 ### Mailgun
+If you want to send mails e.g.to user's.
 
 - Create [mailgun](https://www.mailgun.com/) account.
 - Create domain and setup DNS.
@@ -98,6 +115,7 @@ firebase functions:config:set mailgun.key="" mailgun.domain="" mailgun.host=""
 - Create firestore index (send test mail, see logs, find link to create index).
 
 ## Contributing
+What you should know if you want to contribute.
 
 We encourage you to contribute to WeDance!
 
@@ -108,6 +126,7 @@ Remember that communication is the lifeblood of any Open Source project. We are 
 We are all humans trying to work together to improve the community. Always be kind and appreciate the need for trade-offs. ❤️
 
 ### Reporting Issues
+How to report an issue, what kind of issues are there, and what is important if you want to report an issue.
 
 A great way to contribute to the project is to send a detailed report when you encounter an issue.
 
@@ -130,6 +149,7 @@ As a `Role` I want to `Goal` in order to `Reason`
 And include acceptance criteria, which describes a check list with all requirements.
 
 ### Where to contribute
+To what part of the project can you contribute, and what is a good place to start if your new to open source projekts.
 
 Documentation is almost always a great place to start contributing to a new project. WeDance is an Open Source, community-driven project. Therefore, providing and maintaining quality documentation is one of our most important jobs. You can find more information in our docs guide!
 
@@ -140,12 +160,14 @@ Fixing bugs is a super fast way to improve the experience for our users! When yo
 Building features requires a lot of communication, but we'd love to have your help with this too! Features tend to be subjective and might spur some debate. Be sure to create an issue for new features before getting started! If your feature involves design changes, including design mockups can be very helpful. As always, when in doubt, ask!
 
 ### How to contribute
+What should you keep in mind when contributing?
 
 We'd love to see your pull requests, even if it's just to fix a typo!
 
 However, any significant improvement should be associated to an existing feature request or bug report.
 
 #### Getting started
+For contributing code you should follow these steps:
 
 - Setup project locally (see Installation Guide).
 - Make changes to code.
@@ -155,12 +177,17 @@ However, any significant improvement should be associated to an existing feature
 - Create a Pull Request and include a link to your Netlify demo.
 
 #### Code Style
+It's always nice if all code looks nice and it makes maintenance much easier.
+But you don't have to do formatting by hand, there are auto-formater that take the pain away.
+We're using following code styles.
 
 ##### js, html, vue
 
 As you might have noticed already, we are using ESLint to enforce a code standard. Please run `yarn lint` before committing your changes to verify that the code style is correct. If not, you can use `yarn lint --fix` to fix most of the style changes. If there are still errors left, you must correct them manually.
 
-##### git
+#### Commit Style
+A good commit message is essential for a good version control, that is why you schuld choose good commit messages.
+Thanks to some nice people there exist style guides that even enable mashine readability.
 
 We use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). See examples of [good commits](https://chris.beams.io/posts/git-commit/) and [bad commits](http://whatthecommit.com/).
 
