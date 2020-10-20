@@ -65,7 +65,7 @@ Read [How to deploy on Netlify?](https://nuxtjs.org/faq/netlify-deployment/).
 - Build command: `yarn build`.
 - Publish directory: `dist`.
 - Click `Advanced build settings` and `New variable`.
-- Add all keys and values from `.env` file.
+- Add all keys and values from `.env` file (`URL` and [some other variables](https://docs.netlify.com/configure-builds/environment-variables/) are set automatically)
 - Click `Deploy site`.
 
 To activate all services and features see section `Services` below.
