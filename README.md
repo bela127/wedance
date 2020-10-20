@@ -14,7 +14,7 @@ In this section all frameworks and technologies used in this Project are listed.
 - [Netlify](https://netlify.com/) – CDN, CI and Hosting provider, that deploys site on each commit.
 
 ## Installation Guide
-In the following e detailed explanation is given, how to setup a running development version of the hole Projekt, with database and webhost.
+How to setup project locally with database.
 ### Prerequisites
 What you need before you can begin.
 
